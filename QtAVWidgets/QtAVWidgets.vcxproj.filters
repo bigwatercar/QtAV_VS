@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <QtMoc Include="src\Direct2DRenderer.cpp" />
+    <QtMoc Include="src\GDIRenderer.cpp" />
+    <QtMoc Include="src\QtAVWidgets\GLWidgetRenderer2.h" />
+    <QtMoc Include="src\QtAVWidgets\GraphicsItemRenderer.h" />
+    <QtMoc Include="src\QtAVWidgets\OpenGLWidgetRenderer.h" />
+    <QtMoc Include="src\QtAVWidgets\QOpenGLWidget.h" />
+    <QtMoc Include="src\QtAVWidgets\VideoPreviewWidget.h" />
+    <QtMoc Include="src\QtAVWidgets\WidgetRenderer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\QtAVWidgets\global.h" />
+    <ClInclude Include="src\QtAVWidgets\QtAVWidgets.h" />
+    <ClInclude Include="src\QtAVWidgets\version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\global.cpp" />
+    <ClCompile Include="src\GLWidgetRenderer2.cpp" />
+    <ClCompile Include="src\GraphicsItemRenderer.cpp" />
+    <ClCompile Include="src\OpenGLWidgetRenderer.cpp" />
+    <ClCompile Include="src\QOpenGLWidget.cpp" />
+    <ClCompile Include="src\VideoPreviewWidget.cpp" />
+    <ClCompile Include="src\WidgetRenderer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src\QtAVWidgets.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\QtAV.ico" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,33 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1622
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtAV", "QtAV\QtAV.vcxproj", "{A730E95B-3262-3CC7-B491-4B62DE69F558}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtAVWidgets", "QtAVWidgets\QtAVWidgets.vcxproj", "{AF1EF82D-8385-3284-9CAA-9041E18392E6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A730E95B-3262-3CC7-B491-4B62DE69F558} = {A730E95B-3262-3CC7-B491-4B62DE69F558}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A730E95B-3262-3CC7-B491-4B62DE69F558}.Debug|x64.ActiveCfg = Debug|x64
+		{A730E95B-3262-3CC7-B491-4B62DE69F558}.Debug|x64.Build.0 = Debug|x64
+		{A730E95B-3262-3CC7-B491-4B62DE69F558}.Release|x64.ActiveCfg = Release|x64
+		{A730E95B-3262-3CC7-B491-4B62DE69F558}.Release|x64.Build.0 = Release|x64
+		{AF1EF82D-8385-3284-9CAA-9041E18392E6}.Debug|x64.ActiveCfg = Debug|x64
+		{AF1EF82D-8385-3284-9CAA-9041E18392E6}.Debug|x64.Build.0 = Debug|x64
+		{AF1EF82D-8385-3284-9CAA-9041E18392E6}.Release|x64.ActiveCfg = Release|x64
+		{AF1EF82D-8385-3284-9CAA-9041E18392E6}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {40F9DA5A-8F0A-4F62-806C-61B352610336}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,562 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A730E95B-3262-3CC7-B491-4B62DE69F558}</ProjectGuid>
+    <RootNamespace>QtAV</RootNamespace>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.18362.0</WindowsTargetPlatformMinVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <OutputDirectory>..\lib_win_x86_64\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <IntermediateDirectory>..\.obj\QtAV_win_x86_64\</IntermediateDirectory>
+    <PrimaryOutput>QtAV1</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <OutputDirectory>..\lib_win_x86_64\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <IntermediateDirectory>..\.obj\QtAVd_win_x86_64\</IntermediateDirectory>
+    <PrimaryOutput>QtAVd1</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>false</LinkIncremental>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtInstall>Qt_5.14.2_msvc2017_64Bit</QtInstall>
+    <QtModules>core;gui</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>Qt_5.14.2_msvc2017_64Bit</QtInstall>
+    <QtModules>core;gui</QtModules>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;.\src;.\src\QtAV;.\src\cuda;.\src\cuda\dllapi;$(SolutionDir)contrib\uchardet\src;$(SolutionDir)contrib\capi;D:\Workspace\CommonLibs\ffmpeg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;_CRT_SECURE_NO_WARNINGS;BUILD_QTAV_LIB;BUILD_UCHARDET;QTAV_HAVE_CAPI=1;QTAV_HAVE_SSE4_1=1;QTAV_HAVE_SSE2=1;QTAV_HAVE_EGL_CAPI=1;__STDC_CONSTANT_MACROS;QTAV_HAVE_SWRESAMPLE=1;QTAV_HAVE_AVDEVICE=1;QTAV_HAVE_AVFILTER=1;QTAV_HAVE_XAUDIO2=1;QTAV_HAVE_DSOUND=1;QTAV_HAVE_CUDA=1;QTAV_HAVE_D3D11VA=1;QTAV_HAVE_DXVA=1;QTAV_HAVE_QT_EGL=1;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>D:\Workspace\CommonLibs\ffmpeg\lib\x64\swresample.lib;D:\Workspace\CommonLibs\ffmpeg\lib\x64\avdevice.lib;D:\Workspace\CommonLibs\ffmpeg\lib\x64\avfilter.lib;ole32.lib;D:\Workspace\CommonLibs\ffmpeg\lib\x64\avcodec.lib;D:\Workspace\CommonLibs\ffmpeg\lib\x64\avformat.lib;D:\Workspace\CommonLibs\ffmpeg\lib\x64\swscale.lib;D:\Workspace\CommonLibs\ffmpeg\lib\x64\avutil.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Workspace\CommonLibs\ffmpeg\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib;libcmtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <LinkDLL>true</LinkDLL>
+      <LinkIncremental>false</LinkIncremental>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <Version>1.13</Version>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;_CRT_SECURE_NO_WARNINGS;BUILD_QTAV_LIB;BUILD_UCHARDET;QTAV_HAVE_CAPI=1;QTAV_HAVE_SSE4_1=1;QTAV_HAVE_SSE2=1;QTAV_HAVE_EGL_CAPI=1;__STDC_CONSTANT_MACROS;QTAV_HAVE_SWRESAMPLE=1;QTAV_HAVE_AVDEVICE=1;QTAV_HAVE_AVFILTER=1;QTAV_HAVE_XAUDIO2=1;QTAV_HAVE_DSOUND=1;QTAV_HAVE_CUDA=1;QTAV_HAVE_D3D11VA=1;QTAV_HAVE_DXVA=1;QTAV_HAVE_QT_EGL=1;NDEBUG;QT_NO_DEBUG;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PostBuildEvent>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>
+      </Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>$(IntDir)moc</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtRcc>
+      <Compression>default</Compression>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <QtRccDir>$(IntDir)qrc</QtRccDir>
+      <QtRccFileName>qrc_%(Filename).cpp</QtRccFileName>
+      <QmlCacheOutputFile>$(IntDir)%&lt;Filename&gt;_%&lt;Suffix&gt;.cpp</QmlCacheOutputFile>
+      <QmlCacheFilteredFile>$(IntDir)%(Filename)_qmlcache.qrc</QmlCacheFilteredFile>
+      <QmlCacheFilteredOutputFile>$(IntDir)qrc_%(Filename)_qmlcache.cpp</QmlCacheFilteredOutputFile>
+      <QmlCacheLoaderFile>$(IntDir)qmlcache_loader.cpp</QmlCacheLoaderFile>
+    </QtRcc>
+    <CustomBuild>
+      <LinkObjects>false</LinkObjects>
+    </CustomBuild>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;.\src;.\src\QtAV;.\src\cuda;.\src\cuda\dllapi;$(SolutionDir)contrib\uchardet\src;$(SolutionDir)contrib\capi;D:\Workspace\CommonLibs\ffmpeg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;DEBUG;_CRT_SECURE_NO_WARNINGS;BUILD_QTAV_LIB;BUILD_UCHARDET;QTAV_HAVE_CAPI=1;QTAV_HAVE_SSE4_1=1;QTAV_HAVE_SSE2=1;QTAV_HAVE_EGL_CAPI=1;__STDC_CONSTANT_MACROS;QTAV_HAVE_SWRESAMPLE=1;QTAV_HAVE_AVDEVICE=1;QTAV_HAVE_AVFILTER=1;QTAV_HAVE_XAUDIO2=1;QTAV_HAVE_DSOUND=1;QTAV_HAVE_CUDA=1;QTAV_HAVE_D3D11VA=1;QTAV_HAVE_DXVA=1;QTAV_HAVE_QT_EGL=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>D:\Workspace\CommonLibs\ffmpeg\lib\x64\swresample.lib;D:\Workspace\CommonLibs\ffmpeg\lib\x64\avdevice.lib;D:\Workspace\CommonLibs\ffmpeg\lib\x64\avfilter.lib;ole32.lib;D:\Workspace\CommonLibs\ffmpeg\lib\x64\avcodec.lib;D:\Workspace\CommonLibs\ffmpeg\lib\x64\avformat.lib;D:\Workspace\CommonLibs\ffmpeg\lib\x64\swscale.lib;D:\Workspace\CommonLibs\ffmpeg\lib\x64\avutil.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Workspace\CommonLibs\ffmpeg\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib;libcmtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <LinkDLL>true</LinkDLL>
+      <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <Version>1.13</Version>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;DEBUG;_CRT_SECURE_NO_WARNINGS;BUILD_QTAV_LIB;BUILD_UCHARDET;QTAV_HAVE_CAPI=1;QTAV_HAVE_SSE4_1=1;QTAV_HAVE_SSE2=1;QTAV_HAVE_EGL_CAPI=1;__STDC_CONSTANT_MACROS;QTAV_HAVE_SWRESAMPLE=1;QTAV_HAVE_AVDEVICE=1;QTAV_HAVE_AVFILTER=1;QTAV_HAVE_XAUDIO2=1;QTAV_HAVE_DSOUND=1;QTAV_HAVE_CUDA=1;QTAV_HAVE_D3D11VA=1;QTAV_HAVE_DXVA=1;QTAV_HAVE_QT_EGL=1;QT_GUI_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PostBuildEvent>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>
+      </Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>$(IntDir)moc</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtRcc>
+      <Compression>default</Compression>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <QtRccDir>$(IntDir)qrc</QtRccDir>
+      <QtRccFileName>qrc_%(Filename).cpp</QtRccFileName>
+      <QmlCacheOutputFile>$(IntDir)%&lt;Filename&gt;_%&lt;Suffix&gt;.cpp</QmlCacheOutputFile>
+      <QmlCacheFilteredFile>$(IntDir)%(Filename)_qmlcache.qrc</QmlCacheFilteredFile>
+      <QmlCacheFilteredOutputFile>$(IntDir)qrc_%(Filename)_qmlcache.cpp</QmlCacheFilteredOutputFile>
+      <QmlCacheLoaderFile>$(IntDir)qmlcache_loader.cpp</QmlCacheLoaderFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\contrib\uchardet\src\CharDistribution.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\JpCntx.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\LangBulgarianModel.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\LangCyrillicModel.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\LangGreekModel.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\LangHebrewModel.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\LangHungarianModel.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\LangThaiModel.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsBig5Prober.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsCharSetProber.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsEscCharsetProber.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsEscSM.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsEUCJPProber.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsEUCKRProber.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsEUCTWProber.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsGB2312Prober.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsHebrewProber.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsLatin1Prober.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsMBCSGroupProber.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsMBCSSM.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsSBCharSetProber.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsSBCSGroupProber.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsSJISProber.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsUniversalDetector.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\nsUTF8Prober.cpp" />
+    <ClCompile Include="..\contrib\uchardet\src\uchardet.cpp" />
+    <ClCompile Include="src\AudioFormat.cpp" />
+    <ClCompile Include="src\AudioFrame.cpp" />
+    <ClCompile Include="src\AudioResampler.cpp" />
+    <ClCompile Include="src\AudioResamplerFF.cpp" />
+    <ClCompile Include="src\AudioThread.cpp" />
+    <ClCompile Include="src\AVClock.cpp" />
+    <ClCompile Include="src\AVCompat.cpp" />
+    <ClCompile Include="src\AVDemuxer.cpp" />
+    <ClCompile Include="src\AVDemuxThread.cpp" />
+    <ClCompile Include="src\AVError.cpp" />
+    <ClCompile Include="src\AVMuxer.cpp" />
+    <ClCompile Include="src\AVPlayer.cpp" />
+    <ClCompile Include="src\AVPlayerPrivate.cpp" />
+    <ClCompile Include="src\AVThread.cpp" />
+    <ClCompile Include="src\AVTranscoder.cpp" />
+    <ClCompile Include="src\capi\egl_api.cpp" />
+    <ClCompile Include="src\codec\audio\AudioDecoder.cpp" />
+    <ClCompile Include="src\Statistics.cpp" />
+    <ClCompile Include="src\VideoCapture.cpp" />
+    <ClCompile Include="src\VideoFormat.cpp" />
+    <ClCompile Include="src\VideoFrame.cpp" />
+    <ClCompile Include="src\VideoFrameExtractor.cpp" />
+    <ClCompile Include="src\VideoThread.cpp" />
+    <QtMoc Include="src\codec\audio\AudioDecoderFFmpeg.cpp">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <ClCompile Include="src\codec\audio\AudioEncoder.cpp" />
+    <ClCompile Include="src\codec\audio\AudioEncoderFFmpeg.cpp" />
+    <ClCompile Include="src\codec\AVDecoder.cpp" />
+    <ClCompile Include="src\codec\AVEncoder.cpp" />
+    <ClCompile Include="src\codec\video\SurfaceInteropCUDA.cpp" />
+    <ClCompile Include="src\codec\video\VideoDecoder.cpp" />
+    <QtMoc Include="src\codec\video\VideoDecoderCUDA.cpp">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <ClCompile Include="src\codec\video\VideoDecoderD3D.cpp" />
+    <ClCompile Include="src\codec\video\VideoDecoderD3D11.cpp" />
+    <ClCompile Include="src\codec\video\VideoDecoderDXVA.cpp" />
+    <QtMoc Include="src\codec\video\VideoDecoderFFmpeg.cpp">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <ClCompile Include="src\codec\video\VideoDecoderFFmpegBase.cpp" />
+    <ClCompile Include="src\codec\video\VideoDecoderFFmpegHW.cpp" />
+    <ClCompile Include="src\codec\video\VideoEncoder.cpp" />
+    <QtMoc Include="src\codec\video\VideoEncoderFFmpeg.cpp">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <ClCompile Include="src\ColorTransform.cpp" />
+    <ClCompile Include="src\cuda\cuda_api.cpp" />
+    <ClCompile Include="src\directx\D3D11VP.cpp" />
+    <ClCompile Include="src\directx\SurfaceInteropD3D11.cpp" />
+    <ClCompile Include="src\directx\SurfaceInteropD3D11EGL.cpp" />
+    <ClCompile Include="src\directx\SurfaceInteropD3D11GL.cpp" />
+    <ClCompile Include="src\directx\SurfaceInteropD3D9.cpp" />
+    <ClCompile Include="src\directx\SurfaceInteropD3D9EGL.cpp" />
+    <ClCompile Include="src\directx\SurfaceInteropD3D9GL.cpp" />
+    <ClCompile Include="src\filter\EncodeFilter.cpp" />
+    <ClCompile Include="src\filter\Filter.cpp" />
+    <ClCompile Include="src\filter\FilterContext.cpp" />
+    <ClCompile Include="src\filter\FilterManager.cpp" />
+    <ClCompile Include="src\filter\GLSLFilter.cpp" />
+    <ClCompile Include="src\filter\LibAVFilter.cpp" />
+    <ClCompile Include="src\filter\SubtitleFilter.cpp" />
+    <ClCompile Include="src\Frame.cpp" />
+    <ClCompile Include="src\FrameReader.cpp" />
+    <ClCompile Include="src\ImageConverter.cpp" />
+    <ClCompile Include="src\ImageConverterFF.cpp" />
+    <ClCompile Include="src\io\MediaIO.cpp" />
+    <QtMoc Include="src\io\QIODeviceIO.cpp">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <ClCompile Include="src\opengl\ConvolutionShader.cpp" />
+    <ClCompile Include="src\opengl\Geometry.cpp" />
+    <ClCompile Include="src\opengl\GeometryRenderer.cpp" />
+    <ClCompile Include="src\opengl\gl_api.cpp" />
+    <ClCompile Include="src\opengl\OpenGLHelper.cpp" />
+    <ClCompile Include="src\opengl\OpenGLTypes.cpp" />
+    <ClCompile Include="src\opengl\OpenGLVideo.cpp" />
+    <ClCompile Include="src\opengl\ShaderManager.cpp" />
+    <ClCompile Include="src\opengl\SubImagesGeometry.cpp" />
+    <ClCompile Include="src\opengl\SubImagesRenderer.cpp" />
+    <ClCompile Include="src\opengl\VideoShader.cpp" />
+    <ClCompile Include="src\opengl\VideoShaderObject.cpp" />
+    <ClCompile Include="src\output\audio\AudioOutput.cpp" />
+    <ClCompile Include="src\output\audio\AudioOutputBackend.cpp" />
+    <ClCompile Include="src\output\audio\AudioOutputDSound.cpp" />
+    <ClCompile Include="src\output\audio\AudioOutputNull.cpp" />
+    <ClCompile Include="src\output\audio\AudioOutputXAudio2.cpp" />
+    <ClCompile Include="src\output\AVOutput.cpp" />
+    <ClCompile Include="src\output\OutputSet.cpp" />
+    <ClCompile Include="src\output\video\OpenGLRendererBase.cpp" />
+    <ClCompile Include="src\output\video\OpenGLWindowRenderer.cpp" />
+    <ClCompile Include="src\output\video\QPainterRenderer.cpp" />
+    <ClCompile Include="src\output\video\VideoOutput.cpp" />
+    <ClCompile Include="src\output\video\VideoRenderer.cpp" />
+    <ClCompile Include="src\Packet.cpp" />
+    <ClCompile Include="src\PacketBuffer.cpp" />
+    <ClCompile Include="src\QtAV_Global.cpp" />
+    <ClCompile Include="src\subtitle\CharsetDetector.cpp" />
+    <ClCompile Include="src\subtitle\PlainText.cpp" />
+    <ClCompile Include="src\subtitle\PlayerSubtitle.cpp" />
+    <ClCompile Include="src\subtitle\SubImage.cpp" />
+    <ClCompile Include="src\subtitle\Subtitle.cpp" />
+    <ClCompile Include="src\subtitle\SubtitleProcessor.cpp" />
+    <ClCompile Include="src\subtitle\SubtitleProcessorFFmpeg.cpp" />
+    <ClCompile Include="src\utils\CopyFrame_SSE2.cpp" />
+    <ClCompile Include="src\utils\CopyFrame_SSE4.cpp" />
+    <ClCompile Include="src\utils\DirectXHelper.cpp" />
+    <ClCompile Include="src\utils\GPUMemCopy.cpp" />
+    <ClCompile Include="src\utils\internal.cpp" />
+    <ClCompile Include="src\utils\Logger.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\contrib\uchardet\src\CharDistribution.h" />
+    <ClInclude Include="..\contrib\uchardet\src\JpCntx.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsBig5Prober.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsCharSetProber.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsCodingStateMachine.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nscore.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsEscCharsetProber.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsEUCJPProber.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsEUCKRProber.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsEUCTWProber.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsGB2312Prober.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsHebrewProber.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsLatin1Prober.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsMBCSGroupProber.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsPkgInt.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsSBCharSetProber.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsSBCSGroupProber.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsSJISProber.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsUniversalDetector.h" />
+    <ClInclude Include="..\contrib\uchardet\src\nsUTF8Prober.h" />
+    <ClInclude Include="..\contrib\uchardet\src\prmem.h" />
+    <ClInclude Include="..\contrib\uchardet\src\uchardet.h" />
+    <QtMoc Include="src\VideoThread.h" />
+    <QtMoc Include="src\AudioThread.h" />
+    <QtMoc Include="src\AVDemuxThread.h" />
+    <ClInclude Include="src\AVPlayerPrivate.h" />
+    <QtMoc Include="src\AVThread.h" />
+    <ClInclude Include="src\AVThread_p.h" />
+    <ClInclude Include="src\capi\egl_api.h" />
+    <ClInclude Include="src\codec\video\SurfaceInteropCUDA.h" />
+    <ClInclude Include="src\ColorTransform.h" />
+    <ClInclude Include="src\ImageConverter.h" />
+    <ClInclude Include="src\ImageConverter_p.h" />
+    <ClInclude Include="src\PacketBuffer.h" />
+    <ClInclude Include="src\utils\BlockingQueue.h" />
+    <ClInclude Include="src\utils\DirectXHelper.h" />
+    <ClInclude Include="src\utils\GPUMemCopy.h" />
+    <ClInclude Include="src\utils\internal.h" />
+    <ClInclude Include="src\utils\Logger.h" />
+    <ClInclude Include="src\utils\ring.h" />
+    <ClInclude Include="src\utils\SharedPtr.h" />
+    <QtMoc Include="src\codec\video\VideoDecoderD3D.h" />
+    <ClInclude Include="src\codec\video\VideoDecoderFFmpegBase.h" />
+    <QtMoc Include="src\codec\video\VideoDecoderFFmpegHW.h" />
+    <ClInclude Include="src\cuda\dllapi\nv_inc.h" />
+    <ClInclude Include="src\directx\D3D11VP.h" />
+    <ClInclude Include="src\directx\SurfaceInteropD3D11.h" />
+    <ClInclude Include="src\directx\SurfaceInteropD3D9.h" />
+    <ClInclude Include="src\filter\FilterManager.h" />
+    <ClInclude Include="src\opengl\gl_api.h" />
+    <ClInclude Include="src\opengl\OpenGLHelper.h" />
+    <QtMoc Include="src\opengl\ShaderManager.h" />
+    <ClInclude Include="src\opengl\SubImagesGeometry.h" />
+    <ClInclude Include="src\opengl\SubImagesRenderer.h" />
+    <ClInclude Include="src\output\audio\xaudio2_compat.h" />
+    <QtMoc Include="src\output\OutputSet.h" />
+    <QtMoc Include="src\QtAV\private\AudioOutputBackend.h" />
+    <ClInclude Include="src\QtAV\AudioDecoder.h" />
+    <QtMoc Include="src\QtAV\AudioEncoder.h" />
+    <ClInclude Include="src\QtAV\AudioFormat.h" />
+    <ClInclude Include="src\QtAV\AudioFrame.h" />
+    <QtMoc Include="src\QtAV\AudioOutput.h" />
+    <ClInclude Include="src\QtAV\AudioResampler.h" />
+    <QtMoc Include="src\QtAV\AVClock.h" />
+    <QtMoc Include="src\QtAV\AVDecoder.h" />
+    <QtMoc Include="src\QtAV\AVDemuxer.h" />
+    <QtMoc Include="src\QtAV\AVEncoder.h" />
+    <ClInclude Include="src\QtAV\AVError.h" />
+    <QtMoc Include="src\QtAV\AVMuxer.h" />
+    <ClInclude Include="src\QtAV\AVOutput.h" />
+    <QtMoc Include="src\QtAV\AVPlayer.h" />
+    <QtMoc Include="src\QtAV\AVTranscoder.h" />
+    <ClInclude Include="src\QtAV\ConvolutionShader.h" />
+    <ClInclude Include="src\QtAV\dptr.h" />
+    <QtMoc Include="src\QtAV\EncodeFilter.h" />
+    <ClInclude Include="src\QtAV\FactoryDefine.h" />
+    <QtMoc Include="src\QtAV\Filter.h" />
+    <ClInclude Include="src\QtAV\FilterContext.h" />
+    <ClInclude Include="src\QtAV\Frame.h" />
+    <QtMoc Include="src\QtAV\FrameReader.h" />
+    <ClInclude Include="src\QtAV\Geometry.h" />
+    <ClInclude Include="src\QtAV\GeometryRenderer.h" />
+    <QtMoc Include="src\QtAV\GLSLFilter.h" />
+    <QtMoc Include="src\QtAV\LibAVFilter.h" />
+    <QtMoc Include="src\QtAV\MediaIO.h" />
+    <ClInclude Include="src\QtAV\OpenGLRendererBase.h" />
+    <ClInclude Include="src\QtAV\OpenGLTypes.h" />
+    <QtMoc Include="src\QtAV\OpenGLVideo.h" />
+    <QtMoc Include="src\QtAV\OpenGLWindowRenderer.h" />
+    <ClInclude Include="src\QtAV\Packet.h" />
+    <ClInclude Include="src\QtAV\private\AudioResampler_p.h" />
+    <ClInclude Include="src\QtAV\private\AVCompat.h" />
+    <ClInclude Include="src\QtAV\private\AVDecoder_p.h" />
+    <ClInclude Include="src\QtAV\private\AVEncoder_p.h" />
+    <ClInclude Include="src\QtAV\private\AVOutput_p.h" />
+    <ClInclude Include="src\QtAV\private\factory.h" />
+    <ClInclude Include="src\QtAV\private\Filter_p.h" />
+    <ClInclude Include="src\QtAV\private\Frame_p.h" />
+    <ClInclude Include="src\QtAV\private\MediaIO_p.h" />
+    <ClInclude Include="src\QtAV\private\mkid.h" />
+    <ClInclude Include="src\QtAV\private\OpenGLRendererBase_p.h" />
+    <QtMoc Include="src\QtAV\private\PlayerSubtitle.h" />
+    <ClInclude Include="src\QtAV\private\prepost.h" />
+    <ClInclude Include="src\QtAV\private\QPainterRenderer_p.h" />
+    <ClInclude Include="src\QtAV\private\singleton.h" />
+    <ClInclude Include="src\QtAV\private\SubtitleProcessor.h" />
+    <ClInclude Include="src\QtAV\private\VideoRenderer_p.h" />
+    <ClInclude Include="src\QtAV\private\VideoShader_p.h" />
+    <ClInclude Include="src\QtAV\QPainterRenderer.h" />
+    <ClInclude Include="src\QtAV\QtAV.h" />
+    <ClInclude Include="src\QtAV\QtAV_Global.h" />
+    <ClInclude Include="src\QtAV\Statistics.h" />
+    <ClInclude Include="src\QtAV\SubImage.h" />
+    <QtMoc Include="src\QtAV\Subtitle.h" />
+    <QtMoc Include="src\QtAV\SubtitleFilter.h" />
+    <ClInclude Include="src\QtAV\SurfaceInterop.h" />
+    <ClInclude Include="src\QtAV\version.h" />
+    <QtMoc Include="src\QtAV\VideoCapture.h" />
+    <ClInclude Include="src\QtAV\VideoDecoder.h" />
+    <QtMoc Include="src\QtAV\VideoEncoder.h" />
+    <ClInclude Include="src\QtAV\VideoFormat.h" />
+    <ClInclude Include="src\QtAV\VideoFrame.h" />
+    <QtMoc Include="src\QtAV\VideoFrameExtractor.h" />
+    <QtMoc Include="src\QtAV\VideoOutput.h" />
+    <ClInclude Include="src\QtAV\VideoRenderer.h" />
+    <ClInclude Include="src\QtAV\VideoShader.h" />
+    <QtMoc Include="src\QtAV\VideoShaderObject.h" />
+    <ClInclude Include="src\subtitle\CharsetDetector.h" />
+    <ClInclude Include="src\subtitle\PlainText.h" />
+    <ClInclude Include="src\cuda\cuda_api.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <!--
+    <CustomBuild Include="..\.obj\QtAV_win_x86_64\CopyFrame_SSE2.obj.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Workspace\QtAV\QtAV\src\utils\CopyFrame_SSE2.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -c $(CXXFLAGS) -arch:SSE2 -ID:\Workspace\QtAV\QtAV\src -I. -ID:\Workspace\CommonLibs\ffmpeg\include -IC:\Qt\5.14.2\msvc2017_64\include -ID:\Workspace\QtAV\QtAV\src -ID:\Workspace\QtAV\QtAV -ID:\Workspace\QtAV\QtAV\src\QtAV -ID:\Workspace\QtAV\QtAV\contrib\uchardet\src -ID:\Workspace\QtAV\QtAV\contrib\capi -ID:\Workspace\QtAV\QtAV\src\cuda -ID:\Workspace\QtAV\QtAV\src\cuda\dllapi -IC:\Qt\5.14.2\msvc2017_64\include\QtGui -IC:\Qt\5.14.2\msvc2017_64\include\QtANGLE -IC:\Qt\5.14.2\msvc2017_64\include\QtCore -I..\.moc\5.14.2\QtAV -I/include -IC:\Qt\5.14.2\msvc2017_64\mkspecs\win32-msvc D:\Workspace\QtAV\QtAV\src\utils\CopyFrame_SSE2.cpp -Fo..\.obj\QtAV_win_x86_64\CopyFrame_SSE2.obj</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">compiling[sse2] D:/Workspace/QtAV/QtAV/src/utils/CopyFrame_SSE2.cpp</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\.obj\QtAV_win_x86_64\CopyFrame_SSE2.obj;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="..\.obj\QtAV_win_x86_64\CopyFrame_SSE4.obj.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Workspace\QtAV\QtAV\src\utils\CopyFrame_SSE4.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -c $(CXXFLAGS) -arch:SSE2 -ID:\Workspace\QtAV\QtAV\src -I. -ID:\Workspace\CommonLibs\ffmpeg\include -IC:\Qt\5.14.2\msvc2017_64\include -ID:\Workspace\QtAV\QtAV\src -ID:\Workspace\QtAV\QtAV -ID:\Workspace\QtAV\QtAV\src\QtAV -ID:\Workspace\QtAV\QtAV\contrib\uchardet\src -ID:\Workspace\QtAV\QtAV\contrib\capi -ID:\Workspace\QtAV\QtAV\src\cuda -ID:\Workspace\QtAV\QtAV\src\cuda\dllapi -IC:\Qt\5.14.2\msvc2017_64\include\QtGui -IC:\Qt\5.14.2\msvc2017_64\include\QtANGLE -IC:\Qt\5.14.2\msvc2017_64\include\QtCore -I..\.moc\5.14.2\QtAV -I/include -IC:\Qt\5.14.2\msvc2017_64\mkspecs\win32-msvc D:\Workspace\QtAV\QtAV\src\utils\CopyFrame_SSE4.cpp -Fo..\.obj\QtAV_win_x86_64\CopyFrame_SSE4.obj</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">compiling[sse4_1] D:/Workspace/QtAV/QtAV/src/utils/CopyFrame_SSE4.cpp</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\.obj\QtAV_win_x86_64\CopyFrame_SSE4.obj;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="D:\Workspace\QtAV\QtAV_vcproj\.moc\5.14.2\QtAV\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\5.14.2\msvc2017_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -BxC:\Qt\5.14.2\msvc2017_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E C:\Qt\5.14.2\msvc2017_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;D:\Workspace\QtAV\QtAV_vcproj\.moc\5.14.2\QtAV\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Workspace\QtAV\QtAV_vcproj\.moc\5.14.2\QtAV\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </CustomBuild>
+		  -->
+    <ResourceCompile Include="src\QtAV.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\QtAV.icns" />
+    <None Include="src\QtAV.svg" />
+    <None Include="src\shaders\packed.f.glsl" />
+    <None Include="src\shaders\planar.f.glsl" />
+    <None Include="src\shaders\video.vert" />
+    <None Include="src\unexport.list" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="src\QtAV.qrc" />
+    <QtRcc Include="src\shaders\shaders.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\QtAV.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtTranslation Include="src\i18n\QtAV.ts" />
+    <QtTranslation Include="src\i18n\QtAV_zh_CN.ts" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
